@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<!--
+	This file contains master version information.
+-->
+<VersionData revision="1">
+  <ProductVersionDatum type="properties">
+    <ProductVersion>0.0.1</ProductVersion>
+    <FileVersionNamePrefix>MKVER_</FileVersionNamePrefix>
+    <FileExtraInfo>name=Base
+tags=
+short-description=
+change-log=
+page-url=
+author=
+licenses=
+portal-dependency-jars=\
+    jstl-api.jar,\
+    jstl-impl.jar
+portal-dependency-tlds=c.tld
+liferay-core-version=6.0.6</FileExtraInfo>
+  </ProductVersionDatum>
+</VersionData>

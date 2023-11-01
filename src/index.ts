@@ -26,7 +26,6 @@ yargs(hideBin(process.argv))
         location: String(argv.location)
     });
 })
-
 .command('untrack path', 'Track a new file or update if currently tracked', (yargs) => {
     return yargs
     .positional('path', {
@@ -34,6 +33,14 @@ yargs(hideBin(process.argv))
     });
 }, async (argv) => {
     (new Project(process.cwd())).untrack(String(argv.path));
+})
+.command('set fixedVersion', 'Set a fixed version in all files', (yargs) => {
+    return yargs
+    .positional('fixedVersion', {
+        describe: 'The version to be set'
+    });
+}, async (argv) => {
+    (new Project(process.cwd())).setVersion(String(argv.fixedVersion));
 })
 .option('verbose', {
     alias: 'v',

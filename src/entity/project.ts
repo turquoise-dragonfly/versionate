@@ -1,6 +1,6 @@
 import { existsSync, readFileSync, writeFileSync } from "fs";
 import path from "path";
-import { string } from "yargs";
+import { HandlerFactory } from "../handler/handler-factory";
 
 export interface VersionFile {
     path: string;
@@ -43,6 +43,13 @@ export class Project {
     untrack(filePath: string) {
         this.files = this.files.filter(f => f.path !== path.resolve(filePath));
         this.save();
+    }
+
+    setVersion(version: string) {
+        this.files.forEach(file => {
+            console.log(`Updating version in file ${file.path}`);
+            HandlerFactory.get(file).set(version).save();
+        });
     }
 
     private save() {

@@ -42,6 +42,19 @@ yargs(hideBin(process.argv))
 }, async (argv) => {
     (new Project(process.cwd())).setVersion(String(argv.fixedVersion));
 })
+.command('bump fragment', 'Increment the given fragment of the version', (yargs) => {
+    return yargs
+    .positional('fragment', {
+        describe: 'The version fragment to increment'
+    });
+}, async (argv) => {
+    (new Project(process.cwd())).incrementVersion(String(argv.fragment));
+})
+.command('show', 'Show the current version of the project', (yargs) => {
+    return yargs;
+}, async (argv) => {
+    (new Project(process.cwd())).showVersion(Boolean(argv.verbose));
+})
 .option('verbose', {
     alias: 'v',
     type: 'boolean',

@@ -11,10 +11,20 @@ const OPTIONS = {
 };
 
 export class XmlHandler extends Handler {
+    xml: any;
+
+    parse(): Handler {
+        this.xml = (new XMLParser(OPTIONS)).parse(this.input);
+        return this;
+    }
+
+    version(): string {
+        return jsonpath.query(this.xml, this.file.location).toString(); 
+    }
+
     set(version: string): Handler {
-        const xml = (new XMLParser(OPTIONS)).parse(this.input);
-        jsonpath.apply(xml, this.file.location, () => version);
-        this.output = (new XMLBuilder(OPTIONS)).build(xml);
+        jsonpath.apply(this.xml, this.file.location, () => version);
+        this.output = (new XMLBuilder(OPTIONS)).build(this.xml);
         return this;
     }
 }

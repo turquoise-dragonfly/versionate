@@ -11,6 +11,10 @@ export abstract class Handler {
         this.output = this.input = readFileSync(this.file.path, 'utf8');
     }
 
+    abstract parse(): Handler;
+
+    abstract version(): string;
+
     abstract set(version: string): Handler;
 
     save(): void {

@@ -1,17 +1,37 @@
 import { Handler } from "./handler";
-import { VisitorOption, replace } from "estraverse";
+import { VisitorOption, replace, traverse } from "estraverse";
 import * as escodegen from "escodegen";
 
 export class TsHandler extends Handler {
-    set(version: string): Handler {
-        const esprima = require('esprima');
-        const ast = esprima.parse(this.input, { sourceType: 'module'});
+    ast: any;
 
-        replace(ast, {
+    parse(): Handler {
+        const esprima = require('esprima');
+        this.ast = esprima.parse(this.input, { sourceType: 'module'});
+        return this;
+    }
+
+    version(): string {
+        let version: string = '';
+        traverse(this.ast, {
             enter: (node, parent) => {
-                node.type
                 if (parent && parent.type === 'Property'
-                && parent.key.type === 'Identifier' && parent.key.name === 'VERSION'
+                && parent.key.type === 'Identifier' && parent.key.name === this.file.location
+                && node.type === 'Literal') {
+                    version = node.value?.toString() ?? '';
+                    return VisitorOption.Break;
+                }
+            }
+        });
+        return version;
+    }
+
+    set(version: string): Handler {
+
+        replace(this.ast, {
+            enter: (node, parent) => {
+                if (parent && parent.type === 'Property'
+                && parent.key.type === 'Identifier' && parent.key.name === this.file.location
                 && node.type === 'Literal') {
                     node.value = version;
                     return VisitorOption.Break;
@@ -20,7 +40,7 @@ export class TsHandler extends Handler {
             }
         });
 
-        this.output = escodegen.generate(ast);
+        this.output = escodegen.generate(this.ast);
         
         return this;
     }

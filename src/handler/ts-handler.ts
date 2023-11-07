@@ -1,13 +1,13 @@
 import { Handler } from "./handler.js";
 import { VisitorOption, replace, traverse } from "estraverse";
 import * as escodegen from "escodegen";
+import * as esprimaLoad from "esprima";
 
 export class TsHandler extends Handler {
     ast: any;
 
     parse(): Handler {
-        const esprima = require('esprima');
-        this.ast = esprima.parse(this.input, { sourceType: 'module'});
+        this.ast = esprimaLoad.parseModule(this.input);
         return this;
     }
 

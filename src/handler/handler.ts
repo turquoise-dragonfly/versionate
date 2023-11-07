@@ -1,5 +1,6 @@
 import { readFileSync, writeFileSync } from "fs";
 import { VersionFile } from "../entity/project.js";
+import path from "path";
 
 export abstract class Handler {
     file: VersionFile;
@@ -8,7 +9,7 @@ export abstract class Handler {
 
     constructor(file: VersionFile) {
         this.file = file;
-        this.output = this.input = readFileSync(this.file.path, 'utf8');
+        this.output = this.input = readFileSync(path.resolve(this.file.path), 'utf8');
     }
 
     abstract parse(): Handler;

@@ -31,7 +31,6 @@ export class Project {
     }
 
     track(file: VersionFile) {
-        file.path = path.resolve(file.path);
         if (!existsSync(file.path)) {
             throw Error('El fichero no existe');
         }
@@ -44,7 +43,7 @@ export class Project {
     }
 
     untrack(filePath: string) {
-        this.files = this.files.filter(f => f.path !== path.resolve(filePath));
+        this.files = this.files.filter(f => f.path !== filePath);
         this.save();
     }
 

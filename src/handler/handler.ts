@@ -1,5 +1,5 @@
 import { readFileSync, writeFileSync } from "fs";
-import { VersionFile } from "../entity/project";
+import { VersionFile } from "../entity/project.js";
 
 export abstract class Handler {
     file: VersionFile;

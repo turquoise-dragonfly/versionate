@@ -2,7 +2,7 @@
 
 import yargs from 'yargs'
 import { hideBin } from 'yargs/helpers'
-import { Project } from './entity/project';
+import { Project } from './entity/project.js';
 
 yargs(hideBin(process.argv))
 .command('init', 'Init project', (yargs) => {

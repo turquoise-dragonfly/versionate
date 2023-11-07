@@ -1,4 +1,4 @@
-import { Handler } from "./handler";
+import { Handler } from "./handler.js";
 import { VisitorOption, replace, traverse } from "estraverse";
 import * as escodegen from "escodegen";
 

@@ -2,7 +2,9 @@
   "name": "versionate",
   "version": "1.0.0-1",
   "description": "Update the software version in multiple files with different formats",
+  "type": "module", 
   "main": "dist/index.js",
+  "files": ["dist"],
   "scripts": {
     "build": "npx tsc",
     "test": "echo \"Error: no test specified\" && exit 1"

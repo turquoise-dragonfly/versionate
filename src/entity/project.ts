@@ -1,8 +1,7 @@
 import { existsSync, readFileSync, writeFileSync } from "fs";
 import path from "path";
-import { HandlerFactory } from "../handler/handler-factory";
-import { boolean } from "yargs";
-import { Versioner } from "../tool/versioner";
+import { HandlerFactory } from "../handler/handler-factory.js";
+import { Versioner } from "../tool/versioner.js";
 
 export interface VersionFile {
     path: string;

@@ -1,5 +1,5 @@
 import { XMLParser, XMLBuilder } from "fast-xml-parser";
-import { Handler } from "./handler";
+import { Handler } from "./handler.js";
 import jsonpath from "jsonpath";
 
 const OPTIONS = {

@@ -1,9 +1,9 @@
-import { VersionFile } from "../entity/project";
-import { Handler } from "./handler";
-import { JsonHandler } from "./json-handler";
-import { PropertiesHandler } from "./properties-handler";
-import { TsHandler } from "./ts-handler";
-import { XmlHandler } from "./xml-handler";
+import { VersionFile } from "../entity/project.js";
+import { Handler } from "./handler.js";
+import { JsonHandler } from "./json-handler.js";
+import { PropertiesHandler } from "./properties-handler.js";
+import { TsHandler } from "./ts-handler.js";
+import { XmlHandler } from "./xml-handler.js";
 
 export class HandlerFactory {
     static get(file: VersionFile): Handler {

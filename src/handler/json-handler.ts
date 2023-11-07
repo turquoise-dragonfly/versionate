@@ -1,5 +1,5 @@
 import jsonpath from "jsonpath";
-import { Handler } from "./handler";
+import { Handler } from "./handler.js";
 
 export class JsonHandler extends Handler {
     json: any;

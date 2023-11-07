@@ -1,4 +1,4 @@
-import { Handler } from "./handler";
+import { Handler } from "./handler.js";
 import { PropertiesEditor } from "properties-file/editor";
 
 export class PropertiesHandler extends Handler {

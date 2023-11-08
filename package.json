@@ -1,6 +1,6 @@
 {
   "name": "@turquoise-dragonfly/versionate",
-  "version": "1.0.0-2",
+  "version": "1.0.0-3",
   "description": "Update the software version in multiple files with different formats",
   "type": "module", 
   "main": "dist/index.js",

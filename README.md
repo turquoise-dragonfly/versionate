@@ -31,10 +31,10 @@ Initialize a project by creating an empty `.versionate` file.
 Adds a file containing a version to manage to the project.
 XML, JSON, TypeScript and properties files are supported.
 
-`versionate track path type location`
+`versionate track path location type`
  - `path` The path of the file to add
- - `type ` The file format: xml, json, ts or properties
  - `location` The location of the version number in the file content
+ - `type ` The file format: xml, json, ts or properties
 
 ### Untrack files
 Delete a file from the project so that it is no longer managed.

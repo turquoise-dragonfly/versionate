@@ -31,6 +31,7 @@ export class Project {
     }
 
     track(file: VersionFile) {
+        file.path = path.normalize(file.path).replace(/\\/g, '/');
         if (!existsSync(file.path)) {
             throw Error('El fichero no existe');
         }

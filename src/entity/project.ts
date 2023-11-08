@@ -87,7 +87,7 @@ export class Project {
             console.info(`Current version: ${this.currentVersion.entries().next().value[0]}`);
 
             if (verbose) {
-                console.info('Synchronized files::');
+                console.info('Synchronized files:');
                 this.files.forEach(file => {
                     console.info(`  * ${file.version} (${file.path})`);
                 });

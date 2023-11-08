@@ -10,16 +10,16 @@ yargs(hideBin(process.argv))
 }, async (argv) => {
     (new Project(process.cwd())).init();
 })
-.command('track path type location', 'Track a new file or update if currently tracked', (yargs) => {
+.command('track path location type', 'Track a new file or update if currently tracked', (yargs) => {
     return yargs
     .positional('path', {
         describe: 'Ruta del fichero a añadir'
     })
-    .positional('type', {
-        describe: 'Tipo de fichero'
-    })
     .positional('location', {
         describe: 'Localización de la versión'
+    })
+    .positional('type', {
+        describe: 'Tipo de fichero'
     });
 }, async (argv) => {
     (new Project(process.cwd())).track({
